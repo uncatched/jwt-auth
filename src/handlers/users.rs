@@ -16,7 +16,7 @@ struct InputUser {
 }
 
 #[get("/users")]
-pub async fn get_users(db: web::Data<Pool>) -> Result<HttpResponse, Error> {
+pub async fn get_all_users(db: web::Data<Pool>) -> Result<HttpResponse, Error> {
     Ok(web::block(move || db_get_all_users(db) )
         .await
         .map(|user| HttpResponse::Ok().json(user))

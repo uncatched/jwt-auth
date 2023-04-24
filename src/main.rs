@@ -25,7 +25,7 @@ async fn main() -> std::io::Result<()>{
     HttpServer::new(move || {
         App::new()
             .data(pool.clone())
-            .service(handlers::users::get_users)
+            .service(handlers::users::get_all_users)
             .service(handlers::users::get_user_by_id)
             .service(handlers::users::add_user)
             .service(handlers::users::delete_user)
